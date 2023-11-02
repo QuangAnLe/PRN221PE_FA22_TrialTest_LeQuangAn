@@ -1,0 +1,48 @@
+﻿@page
+@using CandidateManagement_LeQuangAn.Pages.Candidate;
+@model             EditModel
+@{
+}
+
+<form method="post" >
+
+<h1 class="mb-3" >Edit Candidate</h1>
+
+<div class="mb-3" >
+	<label class="form-label" >CandidateId</label>
+	<input type="text" class="form-control" asp-for="EditCandidateViewModel.CandidateId" readonly />
+</div>
+
+<div class="mb-3" >
+	<label class="form-label" >Fullname</label>
+	<input type="text" class="form-control" asp-for="EditCandidateViewModel.Fullname" />
+</div>
+
+<div class="mb-3" >
+	<label class="form-label" >Date Of Birth</label>
+	<input type="date" class="form-control" asp-for="EditCandidateViewModel.Birthday" />
+</div>
+
+<div class="mb-3" >
+	<label class="form-label" >ProfileShortDescription</label>
+	<input type="text" class="form-control" asp-for="EditCandidateViewModel.ProfileShortDescription" />
+</div>
+
+<div class="mb-3" >
+	<label class="form-label" >ProfileUrl</label>
+	<input type="text" class="form-control" asp-for="EditCandidateViewModel.ProfileUrl" />
+</div>
+
+	
+<div class="mb-3" >
+	<label class="form-label" >PostingId</label>
+	<input type="text" class="form-control" asp-for="EditCandidateViewModel.PostingId" />
+</div>
+
+
+<div class="mb-3" >
+	<button type="submit" class="btn btn-primary" >
+		Update
+	</button>
+</div>
+</form>

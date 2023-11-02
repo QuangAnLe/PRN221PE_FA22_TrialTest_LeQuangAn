@@ -1,0 +1,55 @@
+﻿@page
+@model CandidateManagement_LeQuangAn.Pages.Candidate.CandidateProfileModel
+@{
+}
+
+<h1 class="mb-3">List Of Employees</h1>
+
+<form method="post" >
+	<div>
+		<label>Fullname</label>
+		<input type="text" asp-for="@Model.fullName"  />
+	</div>
+	<div>
+		<label>Birthday</label>
+		<input type="date" asp-for="@Model.birthDay"  />
+	</div>
+	<button asp-page-handler="search" type="submit" >Search</button>
+	
+</form>
+
+@if(Model.CandidateProfiles != null && Model.CandidateProfiles.Any()) {
+	<table class="table" >
+		<thead>
+			<tr>
+				<th>Id</th>
+			    <th>Fullname</th>
+			    <th>Birthday</th>
+			    <th>ProfileShortDescription</th>
+			    <th>ProfileUrl</th>
+				<th>PostingId</th>
+				<th>Edit</th>
+				<th>Delete</th>
+
+			</tr>	
+		</thead>
+		<tbody>
+			@foreach(var c in Model.CandidateProfiles ) {
+				<tr>
+					<td>@c.CandidateId</td>
+					<td>@c.Fullname</td>
+					<td>@c.Birthday</td>
+					<td>@c.ProfileShortDescription</td>
+					<td>@c.ProfileUrl</td>
+					<td>@c.PostingId</td>
+					<td>
+						@Html.ActionLink("Edit", "Edit", new {id = c.CandidateId.ToString()})
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}else {
+	<p>No CandidateProfile found!</p>
+}
+<a asp-page-handler="Logout">Logout</a>
