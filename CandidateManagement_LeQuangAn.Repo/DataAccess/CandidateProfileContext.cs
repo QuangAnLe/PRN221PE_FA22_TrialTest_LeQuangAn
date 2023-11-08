@@ -71,7 +71,7 @@ public class CandidateProfileContext
     {
         List<CandidateProfile> listCandidates = null;
         string dateString = birthDate;
-        string format = "dd/MM/yyyy";
+        string format = "MM/dd/yyyy";
         DateTime result = DateTime.ParseExact(dateString, format, null);
         try
         {

@@ -9,6 +9,7 @@ namespace CandidateManagement_LeQuangAn.Pages.CandidateCRUD;
 public class IndexModel : PageModel
 {
     private ICandidateProfileRepo candidateProfileRepo;
+    public string Email { get; set; }
 
     // private readonly ICandidateService _candidateService;
     private CandidateProfileContext candidateProfileContext = new CandidateProfileContext();
@@ -46,6 +47,7 @@ public class IndexModel : PageModel
 
     public void OnGet(int p = 1, int s = 3)
     {
+        Email = HttpContext.Session.GetString("email");
         if (HttpContext.Session.GetString("email") == null)
         {
             Response.Redirect("/Login");
@@ -80,6 +82,6 @@ public class IndexModel : PageModel
     public IActionResult OnGetLogout()
     {
         HttpContext.Session.Remove("email");
-        return RedirectToPage("/Index");
+        return RedirectToPage("/CandidateCRUD/Index");
     }
 }
