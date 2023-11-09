@@ -11,7 +11,6 @@ public class IndexModel : PageModel
     private ICandidateProfileRepo candidateProfileRepo;
     public string Email { get; set; }
 
-    // private readonly ICandidateService _candidateService;
     private CandidateProfileContext candidateProfileContext = new CandidateProfileContext();
 
     private CandidateManagementContext candidateManagementContext = new CandidateManagementContext();
@@ -20,11 +19,7 @@ public class IndexModel : PageModel
 
     public IndexModel()
     {
-        //_logger = logger;
         candidateProfileRepo = new CandidateProfileRepo();
-        // candidateProfileContext = new CandidateProfileContext();
-        //  candidateManagementContext = _db;
-        // _candidateService = candidateService;
     }
 
     [BindProperty]
@@ -52,12 +47,9 @@ public class IndexModel : PageModel
         {
             Response.Redirect("/Login");
         }
-
-        //CandidateProfile = candidateManagementContext.CandidateProfiles.Skip((p -1) * s).Take(s).ToList();
         CandidateProfile = candidateProfileContext.getCanidatePages(p, s);
         pageSize = s;
         totalCandidate = candidateProfileContext.getTotalCandidatePages();
-        //totalCandidate = candidateManagementContext.CandidateProfiles.Count();
         pageNo = p;
     }
 

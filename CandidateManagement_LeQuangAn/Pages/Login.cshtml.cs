@@ -36,7 +36,6 @@ public class IndexModel : PageModel
             if (user.MemberRole == 2)
             {
                 HttpContext.Session.SetString("email", Email);
-                //return RedirectToPage("/TemplateHrAccount/Index");
                 return RedirectToPage("/CandidateCRUD/Index");
             }
             else

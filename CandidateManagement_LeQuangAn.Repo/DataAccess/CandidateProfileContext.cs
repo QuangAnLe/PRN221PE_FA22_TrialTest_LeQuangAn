@@ -24,7 +24,7 @@ public class CandidateProfileContext
     public int getTotalCandidatePages()
     {
         return candidateManagementContext.CandidateProfiles.Count();
-        // return await candidateManagementContext.CandidateProfiles.CountAsync();
+        
     }
 
     public void AddCandidate(CandidateProfile candidate)
@@ -129,7 +129,7 @@ public class CandidateProfileContext
             CandidateProfile _candidate = getCandidateById(candidateProfile.CandidateId);
             if (_candidate != null)
             {
-                //candidateManagementContext.Entry<CandidateProfile>(candidateProfile).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
                 candidateManagementContext.CandidateProfiles.Update(candidateProfile);
                 candidateManagementContext.SaveChanges();
             }

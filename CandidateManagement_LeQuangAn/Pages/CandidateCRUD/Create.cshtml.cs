@@ -31,7 +31,7 @@ namespace CandidateManagement_LeQuangAn.Pages.CandidateCRUD
         {
         }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+       
         public IActionResult OnPost()
         {
             ModelState.Clear();

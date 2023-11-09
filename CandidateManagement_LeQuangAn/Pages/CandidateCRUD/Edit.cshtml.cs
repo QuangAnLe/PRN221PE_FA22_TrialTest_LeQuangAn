@@ -53,11 +53,6 @@ public class EditModel : PageModel
             ModelState.Clear();
             if (!ModelState.IsValid)
             {
-                //foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-                //{
-                //    // Xử lý thông báo lỗi tại đây
-                //    Console.WriteLine(error);
-                //}
                 return Page();
             }
             candidateProfileRepo.updateCandidate(CandidateProfile);
